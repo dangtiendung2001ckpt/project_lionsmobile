@@ -1,5 +1,5 @@
 <?php
-include_once 'models/addnew.php';
+include_once 'Models/addnew.php';
 class FeedbackController extends Addnew {
     /*
     function homes()

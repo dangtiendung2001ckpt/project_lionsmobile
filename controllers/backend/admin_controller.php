@@ -1,5 +1,5 @@
 <?php
-include_once 'models/update.php';
+include_once 'Models/update.php';
 class AdminController extends Update
 {
     protected $_module = 'backend';

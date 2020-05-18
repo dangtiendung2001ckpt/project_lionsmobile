@@ -1,5 +1,5 @@
 <?php
-include_once 'models/delete.php';
+include_once 'Models/delete.php';
 class ChartpriceController extends DeleteValue {
     protected $_module='backend';
     protected $_control="products";

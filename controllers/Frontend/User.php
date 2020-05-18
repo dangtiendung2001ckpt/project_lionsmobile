@@ -1,6 +1,6 @@
 <?php
-include_once 'models/showdata.php';
-class LoginController extends ShowData {
+include_once 'Models/showdata.php';
+class User extends ShowData {
     protected $_module = 'frontend';
     public function homes()
     {
@@ -33,7 +33,7 @@ class LoginController extends ShowData {
 
 
 
-    public function Login(){
+    public function login(){
         $proid = isset($_GET['proid']) ? $_GET['proid'] : '';
         if ($_POST["username"]!= "" && $_POST["password"]!= "") {
             $username=$_POST["username"];

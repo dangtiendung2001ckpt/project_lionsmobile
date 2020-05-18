@@ -1,5 +1,6 @@
 <?php
-include_once 'update.php';
+namespace Models;
+
 class ShowData extends Update
 {
 
