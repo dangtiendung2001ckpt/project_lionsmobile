@@ -45,9 +45,9 @@
 						</div>
 			      </div>
 		    <?php if (isset($_SESSION['username'])){
-                echo ' <div class="login"><a style="font-size: 17px;" href="index.php?control=login&action=logout">Đăng xuất</a></div>';
+                echo ' <div class="login"><a style="font-size: 17px;" href="index.php?control=user&action=logout">Đăng xuất</a></div>';
             }else{
-              echo ' <div class="login"><a style="font-size: 16px;" href="index.php?control=login">Đăng nhập</a></div>';
+              echo ' <div class="login"><a style="font-size: 16px;" href="index.php?control=user">Đăng nhập</a></div>';
             }  ?>
 		 <div class="clear"></div>
                   <span style="float: right;color: red;padding-top: 5px;"><?php if (isset($_SESSION['username'])){ echo 'Xin chào : '.$_SESSION["username"].'';} ?></span>

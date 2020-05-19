@@ -83,18 +83,7 @@ class ShowData extends Update
         }
         return $rows;
     }
-    public function getAttribute($id){
-        $sql="SELECT attribute_name FROM detail_product as detail join attribute as attr on attr.attribute_id = detail.attribute_id where product_id = '$id'";
-        $this->execute($sql);
-        $count = $this->num_rows();
-        $rows=[];
-        if((int)$count > 0) {
-            while ($row = $this->getRow()) {
-                $rows[] = $row;
-            }
-        }
-        return $rows;
-    }
+
     public function getAllCategory(){
         $sql = "SELECT DISTINCT cat.category_id,cat.category_name FROM category as cat join product as pro on cat.category_id = pro.category_id ";
         $this->execute($sql);
@@ -132,18 +121,7 @@ class ShowData extends Update
         return $rows;
     }
 
-    public function getProductAttr($name,$color,$data){
-        $sql = "SELECT pro.product_id,pro.category_id,pro.name,pro.so_luong,pro.mau_sac,pro.img,pro.ram,pro.dung_luong,pro.price,pro.man_hinh,pro.he_dieu_hanh,pro.cpu,pro.dl_pin,pro.camera_truoc,pro.camera_sau,pro.phukien,pro.defaults,cat.category_name
-                FROM product as pro join category as cat on pro.category_id = cat.category_id
-                where pro.name = '$name' and pro.mau_sac = '$color' and pro.dung_luong= '$data' ";
-        $this->execute($sql);
-        $count = $this->num_rows();
-        $rows=[];
-        if((int)$count > 0) {
-            $rows= $this->getRow();
-        }
-        return $rows;
-    }
+
     public function searchProduct($value,$limit,$offset){
         $sql = "SELECT * FROM product where name REGEXP '$value' and defaults=1 ORDER BY product_id DESC LIMIT $limit OFFSET $offset   ";
         $this->execute($sql);
@@ -197,18 +175,7 @@ class ShowData extends Update
         }
         return $rows;
     }
-    public function getOffer($table,$id,$ord,$limit,$offset,$name,$key,$cat,$value){
-        $sql = "SELECT  * FROM $table where defaults='1' and $name >='$key' or $cat ='$value' and defaults = '1' ORDER BY $id $ord LIMIT $limit OFFSET $offset  ";
-        $this->execute($sql);
-        $count = $this->num_rows();
-        $rows = [];
-        if((int)$count > 0) {
-            while ($row = $this->getRow()) {
-                $rows[] = $row;
-            }
-        }
-        return $rows;
-    }
+
 
     public function getStatistical($sum,$sum2,$date1,$date2,$dk,$dk1){
         $sql = "SELECT sum($sum),sum($sum2) FROM order_detail 
@@ -237,21 +204,7 @@ class ShowData extends Update
         }
         return $rows;
     }
-    public function getFeedback($name,$limit,$offset){
-        $sql = "SELECT user.user_name ,feedback.content,feedback.product_id ,product.name FROM feedback
-                    join user on feedback.user_id = user.user_id 
-                    join product on product.product_id = feedback.product_id
-                    where feedback.defaults=1 and product.name ='$name' order by feedback_id DESC LIMIT $limit OFFSET $offset  ";
-        $this->execute($sql);
-        $count = $this->num_rows();
-        $rows = [];
-        if((int)$count > 0) {
-            while ($row = $this->getRow()) {
-                $rows[] = $row;
-            }
-        }
-        return $rows;
-    }
+
 
 
 

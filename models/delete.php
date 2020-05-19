@@ -4,7 +4,7 @@
 namespace Models;
 
 
-class Delete extends BaseModel
+class Delete extends Count
 {
     public function deleteValue($table, $id, $value)
     {

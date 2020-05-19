@@ -6,6 +6,7 @@ namespace Controllers;
 
 class BaseController
 {
+    protected $_module;
     protected  function render($file, $data = [])
     {
         extract($data);

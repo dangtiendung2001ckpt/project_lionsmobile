@@ -110,6 +110,32 @@ class BaseModel
         return $this->_result->num_rows;
     }
 
+    public function getAllData(){
+        $sql = "SELECT * FROM $this->_tableName ";
+        $this->execute($sql);
+        $count = $this->numRows();
+        $rows=[];
+        if((int)$count > 0) {
+            while ($row = $this->getRow()) {
+                $rows[] = $row;
+            }
+        }
+        return $rows;
+    }
+
+    public function getAllId($name,$key){
+        $sql = "SELECT * FROM $this->_tableName where $name = '$key'";
+        $this->execute($sql);
+        $count = $this->numRows();
+        $rows = [];
+        if((int)$count > 0) {
+            while ($row = $this->getRow()) {
+                $rows[] = $row;
+            }
+        }
+        return $rows;
+    }
+
 }
 
 ?>

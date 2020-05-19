@@ -7,7 +7,7 @@
 <body>
 <div class="container">
 	<section id="content">
-		<form action="index.php?module=backend&control=login&action=login" method="post">
+		<form action="index.php?module=backend&control=user&action=login" method="post">
 			<h1>Đăng nhập admin</h1>
 			<div>
 				<input type="text" placeholder="Tên tài khoản" required="" name="username"/>

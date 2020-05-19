@@ -2,9 +2,26 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a82f8298-a2d8-4ad9-8d00-2bd47360f8d5" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/models/Provincial.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/models/count1.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/layout/backend/header.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/layout/backend/header.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Common/config.php" beforeDir="false" afterPath="$PROJECT_DIR$/Common/config.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/BaseController.php" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/BaseController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/Frontend/Cart.php" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/Frontend/Cart.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/Frontend/Home.php" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/Frontend/Home.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/Frontend/Products.php" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/Frontend/Products.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/Frontend/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/Frontend/User.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/Attribute.php" beforeDir="false" afterPath="$PROJECT_DIR$/models/Attribute.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/BaseModel.php" beforeDir="false" afterPath="$PROJECT_DIR$/models/BaseModel.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/Feedback.php" beforeDir="false" afterPath="$PROJECT_DIR$/models/Feedback.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/Product.php" beforeDir="false" afterPath="$PROJECT_DIR$/models/Product.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/count.php" beforeDir="false" afterPath="$PROJECT_DIR$/models/count.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/delete.php" beforeDir="false" afterPath="$PROJECT_DIR$/models/delete.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/showdata.php" beforeDir="false" afterPath="$PROJECT_DIR$/models/showdata.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/backend/login.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/backend/login.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/frontend/login.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/frontend/login.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/frontend/registration.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/frontend/registration.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/layout/frontend/header.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/layout/frontend/header.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -195,7 +212,8 @@
       <workItem from="1589004399353" duration="80000" />
       <workItem from="1589039146740" duration="3000" />
       <workItem from="1589194565083" duration="28000" />
-      <workItem from="1589815779278" duration="324000" />
+      <workItem from="1589815779278" duration="1523000" />
+      <workItem from="1589858774368" duration="16198000" />
     </task>
     <servers />
   </component>
@@ -211,10 +229,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="441" y="236" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/0.0.1366.728@0.0.1366.728" timestamp="1584417633441" />
-    <state x="490" y="179" key="NewPhpClassDialog" timestamp="1584523616612">
+    <state x="490" y="179" key="NewPhpClassDialog" timestamp="1589876024374">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="490" y="179" key="NewPhpClassDialog/0.0.1366.728@0.0.1366.728" timestamp="1584523616612" />
+    <state x="490" y="179" key="NewPhpClassDialog/0.0.1366.728@0.0.1366.728" timestamp="1589876024374" />
     <state x="518" y="288" key="NewPhpFileDialog" timestamp="1588933650399">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -223,18 +241,18 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="184" y="7" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1583746684525" />
-    <state x="378" y="189" width="609" height="351" key="com.intellij.ide.util.TipDialog" timestamp="1589194579974">
+    <state x="378" y="189" width="609" height="351" key="com.intellij.ide.util.TipDialog" timestamp="1589884530443">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="378" y="189" width="609" height="351" key="com.intellij.ide.util.TipDialog/0.0.1366.728@0.0.1366.728" timestamp="1589194579974" />
+    <state x="378" y="189" width="609" height="351" key="com.intellij.ide.util.TipDialog/0.0.1366.728@0.0.1366.728" timestamp="1589884530443" />
     <state x="344" y="0" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1587449244786">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="344" y="0" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.0.1366.728@0.0.1366.728" timestamp="1587449244786" />
-    <state x="0" y="0" width="736" height="728" key="find.popup" timestamp="1586878502292">
+    <state x="0" y="0" width="736" height="728" key="find.popup" timestamp="1589875785217">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="0" y="0" width="736" height="728" key="find.popup/0.0.1366.728@0.0.1366.728" timestamp="1586878502292" />
+    <state x="0" y="0" width="736" height="728" key="find.popup/0.0.1366.728@0.0.1366.728" timestamp="1589875785217" />
     <state x="339" y="162" key="run.anything.popup" timestamp="1588574172014">
       <screen x="0" y="0" width="1366" height="728" />
     </state>

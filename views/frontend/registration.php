@@ -4,13 +4,17 @@
         <div class="content">
             <div class="login_panel">
                 <h3>Chào mừng bạn đã đến với Lions mobile</h3>
-                <form action="<?php $proid = isset($_GET['proid']) ? $_GET['proid'] : '';  echo "index.php?control=login&action=login&proid=$proid";?>" method="post" id="member">
+                <form action="<?php $proid = isset($_GET['proid']) ? $_GET['proid'] : '';  echo "index.php?control=user&action=login&proid=$proid";?>" method="post" id="member">
                     <input name="username" type="text" placeholder="Tên đăng nhập">
                     <input name="password" type="password" placeholder="Mật khẩu">
                     <p class="note"></p>
                     <input style="background-color: #444444;color: white;height: 40px;text-align: center;"   type="submit"  value="Đăng nhập">
                     <br/>
-                    <span style="color: red;"><?php echo replace();?></span>
+                    <span style="color: red;"><?php if (isset($_SESSION['error'])){
+                        $error=$_SESSION['error'];
+                        echo $error;
+                        unset($_SESSION['error']);
+                        } ?></span>
             </div>
             </form>
 
@@ -22,7 +26,7 @@
                     echo "index.php?control=cart&action=ordercart";
                 }else{
                     $proid = isset($_GET['proid']) ? $_GET['proid'] : '';
-                    echo "index.php?control=login&action=checkdata&proid=$proid";
+                    echo "index.php?control=user&action=checkdata&proid=$proid";
                 }
                 ?>" method="post" onsubmit="return validateForm()" >
                     <table>
@@ -75,7 +79,11 @@
                         echo "Tạo tài khoản mới";
                     } ?>">
                 </form>
-                <span id="error" style="color: red;"><?php echo convert(); ?></span>
+                <span id="error" style="color: red;"><?php if (isset($_SESSION['error_login'])){
+                        $error=$_SESSION['error_login'];
+                        echo $error;
+                        unset($_SESSION['error_login']);
+                    } ?></span>
             </div>
             <div class="clear"></div>
         </div>

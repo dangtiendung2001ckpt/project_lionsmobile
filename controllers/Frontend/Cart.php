@@ -56,7 +56,7 @@ class CartController extends ShowData {
                     header("location:index.php?control=products&action=details&id=$id");
                 }
             }else{
-                header("location:index.php?control=login&int=null&proid=$id");
+                header("location:index.php?control=user&int=null&proid=$id");
             }
         }else{
             header("location:index.php?control=cart");
