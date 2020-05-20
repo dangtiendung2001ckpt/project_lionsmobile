@@ -25,10 +25,10 @@ class Feedback extends BaseModel
                     join product on product.product_id = feedback.product_id
                     where feedback.defaults=1 and product.name ='$name' order by feedback_id $ord LIMIT $limit OFFSET $offset  ";
         $this->execute($sql);
-        $count = $this->numRows();
+        $count = $this->_numRows();
         $rows = [];
         if((int)$count > 0) {
-            while ($row = $this->getRow()) {
+            while ($row = $this->_getRow()) {
                 $rows[] = $row;
             }
         }

@@ -67,74 +67,55 @@ class BaseModel
         return $this->execute($sql);
     }
 
-    public function getRow()
+    protected function _getRow()
     {
         $row = mysqli_fetch_array($this->_result);
         return $row;
     }
 
-    public function numRows(){
+    protected function _numRows(){
         if (!$this->_result) {
             return 0;
         }
         return $this->_result->num_rows;
     }
 
-    public function getData($ord,$limit,$offset){
-        $sql = "SELECT * FROM $this->_tableName ORDER BY $this->_primaryKey $ord LIMIT $limit OFFSET $offset";
+    public function getData($ord,$limit,$offset,$columnName,$key){
+        $sql = "SELECT * FROM $this->_tableName";
+        if (!empty($key)){
+            $sql.=" WHERE $columnName = '$key' ";
+        }
+        if (!empty($ord)){
+            $sql.=" ORDER BY $this->_primaryKey $ord";
+        }
+        if (!empty($limit)){
+            $sql.=" LIMIT $limit OFFSET $offset";
+        }
         $this->execute($sql);
-        $count = $this->numRows();
+        $count = $this->_numRows();
         $rows = [];
         if((int)$count > 0) {
-            while ($row = $this->getRow()) {
+            while ($row = $this->_getRow()) {
                 $rows[] = $row;
             }
         }
         return $rows;
     }
 
-    public function getValue($id){
-        $sql = "SELECT * FROM $this->_tableName where $this->_primaryKey = '$id' ";
-        $this->execute($sql);
-        $count = $this->numRows();
-        $rows=[];
-        if((int)$count > 0) {
-            $rows= $this->getRow();
+
+
+    public function numRow($columnName,$key){
+        $sql ="SELECT COUNT($this->_primaryKey) FROM $this->_tableName";
+        if (!empty($key)){
+            $sql.=" where $columnName = '$key'";
         }
-        return $rows;
-    }
-
-    public function numRow($name,$value){
-        $sql ="SELECT * FROM $this->_tableName where $name = '$value' ";
         $this->execute($sql);
-        return $this->_result->num_rows;
-    }
-
-    public function getAllData(){
-        $sql = "SELECT * FROM $this->_tableName ";
-        $this->execute($sql);
-        $count = $this->numRows();
-        $rows=[];
-        if((int)$count > 0) {
-            while ($row = $this->getRow()) {
-                $rows[] = $row;
-            }
-        }
-        return $rows;
-    }
-
-    public function getAllId($name,$key){
-        $sql = "SELECT * FROM $this->_tableName where $name = '$key'";
-        $this->execute($sql);
-        $count = $this->numRows();
         $rows = [];
-        if((int)$count > 0) {
-            while ($row = $this->getRow()) {
-                $rows[] = $row;
-            }
-        }
-        return $rows;
+        $rows [] = $this->_getRow();
+        return $rows[0]["COUNT($this->_primaryKey)"];
+
     }
+
 
 }
 

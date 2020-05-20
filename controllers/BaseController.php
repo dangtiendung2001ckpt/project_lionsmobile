@@ -15,4 +15,31 @@ class BaseController
         include_once 'views/' . $this->_module . '/' . $file . '.php';
         include_once 'views/layout/' . $this->_module . '/footer.php';
     }
+
+    protected function header($control,$action,$id){
+        $str="location:index.php?module=$this->_module";
+        if (!empty($control)){
+            $str.="&control=$control";
+        }
+        if (!empty($action)){
+            $str.="&action=$action";
+        }
+        if (!empty($id)){
+            $str.="&id=$id";
+        }
+        header($str);
+    }
+    protected function pages($name){
+        $pages = isset($_GET[$name]) ? $_GET[$name] : 1;
+
+        return (int)$pages;
+    }
+    protected function totalPage($totalpage){
+        $totalpage = ceil($totalpage / limit);
+        return $totalpage;
+    }
+    protected function offset($pages){
+        $offset = ($pages - 1) * limit;
+        return $offset;
+    }
 }

@@ -2,6 +2,7 @@
 namespace Controllers\Frontend;
 
 use Controllers\BaseController;
+use Controllers\Valued;
 use Models\Attribute;
 use Models\Category;
 use Models\Feedback;
@@ -10,90 +11,94 @@ use Models\Product;
 class Products extends BaseController
 {
     protected $_module = 'frontend';
-    protected $_model;
+    protected $_control = "products";
+    protected $_products;
     protected $_category;
     protected $_feedback;
     protected $_attribute;
+    protected $_valued;
 
     function __construct()
     {
-        $this->_model = new Product();
+        $this->_products = new Product();
         $this->_category = new Category();
         $this->_feedback = new Feedback();
         $this->_attribute = new Attribute();
+        $this->_valued = new Valued();
 
     }
+
 
     function homes()
     {
 
-        $pages = isset($_GET['pages']) ? $_GET['pages'] : 1;
-        $offset = ($pages - 1) * limit;
-        $products = $this->_model->getProduct(ord, limit, $offset, '1', '1');
-        $totalpage = $this->_model->numRow('defaults', 1);
-        $totalpage = ceil($totalpage / limit);
-        $category = $this->_category->getCategory();
-        if (!empty($products)) {
-            return $this->render('products', ['products' => $products, 'category' => $category, 'pages' => $pages, 'totalpage' => $totalpage]);
-        } else {
-            return false;
+        $totalpage = $this->_products->numRow('defaults', 1);
+        $pages = $this->pages('pages');
+        $totalpage = $this->totalPage($totalpage);
+        if ($pages == 0 && $pages > $totalpage) {
+            return $this->header('', '', '');
         }
+        $offset = $this->offset($pages);
+        $products = $this->_products->getData('', limit, $offset, 'defaults', 1);
+        $category = $this->_category->getData('', '', '', '', '');
+        if (empty($products)) {
+            return $this->header('', '', '');
+        }
+        return $this->render('products', ['products' => $products, 'category' => $category, 'pages' => $pages, 'totalpage' => $totalpage]);
     }
 
 
     public function cat()
     {
-        if (!isset($_GET['catid']) && $_GET['catid'] == "") {
+        $id = $this->_valued->getParam('catid', 'notnull');
+        if ($id == false) {
+            return $this->header($this->_control, '', '');
+        }
+        $id = (int)$id;
+        $pages = $this->pages('pages');
+        $offset = $this->offset($pages);
+        $totalpage = $this->_products->numRow('category_id', $id);
+        $totalpage = $this->totalPage($totalpage);
+        $category = $this->_category->getData('', '', '', '', '');
+        $products = $this->_products->getData('', limit, $offset, 'category_id', $id);
+        if (empty($products)) {
             return false;
         }
-        $id = $_GET['catid'];
-        $pages = isset($_GET['pages']) ? $_GET['pages'] : 1;
-        $offset = ($pages - 1) * limit;
-        $products = $this->_model->getProductsCat($id, ord, limit, $offset);
-        $totalpage = $this->_model->countValue('category_id', $id, 'defaults', 1);
-        $totalpage = ceil($totalpage / limit);
-        $category = $this->_category->getAllData();
-        if (!empty($products)) {
-            return $this->render('products', ['category' => $category, 'products' => $products, 'totalpage' => $totalpage, 'offset' => $offset, 'pages' => $pages]);
-        } else {
-            return false;
-        }
-
-
+        return $this->render('products', ['category' => $category, 'products' => $products, 'totalpage' => $totalpage, 'pages' => $pages]);
     }
 
 
     public function details()
     {
-        if (!isset($_GET['id']) && $_GET['id'] == "") {
-            header("location:index.php?control=products");
+        $id = $this->_valued->getParam('id', 'notnul');
+        if ($id == false) {
+            return $this->header($this->_control, '', '');
         }
-        $id = $_GET['id'];
-        $product = $this->_model->getValue($id);
+        $id = (int)$id;
+        $product = $this->_products->getData('', '10', '0', 'product_id', $id);
         if (empty($product)) {
             header("location:index.php?control=products");
         }
-        $name = $product['name'];
-        $price = $product['price'];
-        $cat = $product['category_id'];
+        $name = $product[0]['name'];
+        $price = $product[0]['price'];
+        $cat = $product[0]['category_id'];
+        $feedback = $this->_feedback->getFeedback(ord, $name, limit, '0');
+        $mau = isset($_GET['mau']) ? $_GET['mau'] : $product[0]['mau_sac'];
+        $dung_luong = isset($_GET['dung_luong']) ? $_GET['dung_luong'] : $product[0]['dung_luong'];
+        $color = $this->_products->getAttribute('mau_sac', 'name', $name);
+        $data = $this->_products->getAttribute('dung_luong', 'name', $name);
+        $offer = $this->_products->getData('', '', '', 'category_id', $cat);
         $total = $this->_feedback->countFeedback($name);
-        $total = ceil($total / limit);
-        $feedback = $this->_feedback->getFeedback(ord, $name, limit, 0);
-        $mau = isset($_GET['mau']) ? $_GET['mau'] : $product['mau_sac'];
-        $dung_luong = isset($_GET['dung_luong']) ? $_GET['dung_luong'] : $product['dung_luong'];
-        $color = $this->_model->getAttribute('mau_sac', 'name', $name);
-        $data = $this->_model->getAttribute('dung_luong', 'name', $name);
-        $offer = $this->_model->getOffer(ord, limit, 0, $price, $cat);
         sort($data);
         if (isset($_GET['dung_luong'])) {
             $dung_luong = substr($dung_luong, 0, -2);
         }
-        $product_attr = $this->_model->getDetailProduct($name, $mau, $dung_luong);
+        $product_attr = $this->_products->getDetailProduct($name, $mau, $dung_luong);
         $support = $this->_attribute->getAttribute($id);
         if (!empty($product_attr)) {
             return $this->render('preview', ['product' => $product_attr, 'color' => $color, 'data' => $data, 'attribute' => $support, 'offer' => $offer, 'feedback' => $feedback, 'totalpage' => $total]);
         } else {
-            header("location:index.php?control=products&action=details&id=$id");
+            return $this->header($this->_control, 'details', $id);
         }
 
     }
@@ -101,44 +106,49 @@ class Products extends BaseController
 
     function searchPro()
     {
-        if (isset($_GET['key']) && $_GET['key'] != "" && !isset($_GET['pages'])) {
-            $key = $_GET['key'];
+        if (!isset($_GET['pages'])) {
+            $key = $this->_valued->getParam('key', 'notnull');
+            if ($key == false) {
+                $this->header('', '', '');
+            }
             $_SESSION['key'] = $key;
-            $pages = isset($_GET['pages']) ? $_GET['pages'] : 1;
-            $offset = ($pages - 1) * limit;
-            $products = $this->_model->searchProduct(ord, $key, limit, $offset);
-            $totalpage = $this->_model->countSearchProduct($key);
-            $totalpage = ceil($totalpage / limit);
-            $category = $this->_category->getAllData();
-            if (!empty($products)) {
-                return $this->render('products', ['category' => $category, 'products' => $products, 'totalpage' => $totalpage, 'offset' => $offset, 'pages' => $pages]);
-            } else {
-                header("location:index.php?control=products");
+            $pages = $this->pages('pages');
+            $offset = $this->offset($pages);
+            $totalpage = $this->_products->countSearchProduct($key);
+            $totalpage = $this->totalPage($totalpage);
+            $products = $this->_products->searchProduct(ord, $key, limit, $offset);
+            $category = $this->_category->getData('', '', '', '', '');
+            if (empty($products)) {
+                $this->header('', '', '');
             }
-        } elseif ($_GET["action"] == "searchPro" && isset($_GET['pages'])) {
-            $key = isset($_SESSION['key']) ? $_SESSION['key'] : "";
-            $pages = isset($_GET['pages']) ? $_GET['pages'] : 1;
-            $offset = ($pages - 1) * limit;
-            $products = $this->_model->searchProduct(ord, $key, limit, $offset);
-            $totalpage = $this->_model->countSearchProduct($key);
-            $totalpage = ceil($totalpage / limit);
-            $category = $this->_category->getAllData();
-            if (!empty($products)) {
-                return $this->render('products', ['category' => $category, 'products' => $products, 'totalpage' => $totalpage, 'offset' => $offset, 'pages' => $pages]);
-            } else {
-                header("location:index.php?control=products");
-            }
-        } else {
-            header("location:index.php");
+            return $this->render('products', ['category' => $category, 'products' => $products, 'totalpage' => $totalpage, 'offset' => $offset, 'pages' => $pages]);
+
         }
+        if ($_GET["action"] == "searchPro" && isset($_GET['pages'])) {
+            $key = isset($_SESSION['key']) ? $_SESSION['key'] : "";
+            $pages = $this->pages('pages');
+            $offset = $this->offset($pages);
+            $totalpage = $this->_products->countSearchProduct($key);
+            $totalpage = $this->totalPage($totalpage);
+            $products = $this->_products->searchProduct(ord, $key, limit, $offset);
+            $category = $this->_category->getData('', '', '', '', '');
+            if (empty($products)) {
+                $this->header('', '', '');
+            }
+            return $this->render('products', ['category' => $category, 'products' => $products, 'totalpage' => $totalpage, 'offset' => $offset, 'pages' => $pages]);
+        }
+        return $this->header('', '', '');
+
     }
 
     function searchPrice()
     {
-        if ($_GET['catid'] == "") {
-            return header("location:index.php?control=products");
+        $id = $this->_valued->getParam('catid', 'notnull');
+        if ($id == false) {
+            $this->header($this->_control, '', '');
         }
-        $id = substr($_GET['catid'], 0, 1);
+        $id = (int)$id;
+        //$id = substr($id, 0, 1);
         $price1 = 0;
         $price2 = 5000000;
         switch ($id) {
@@ -163,16 +173,18 @@ class Products extends BaseController
                 $price2 = 100000000;
                 break;
         }
-        $pages = isset($_GET['pages']) ? $_GET['pages'] : 1;
-        $offset = ($pages - 1) * limit;
-        $products = $this->_model->getProductPrice(ord, $price1, $price2, limit, $offset);
-        $totalpage = $this->_model->countProductPrice($price1, $price2);
-        $totalpage = ceil($totalpage / limit);
-        $category = $this->_category->getAllData();
-        return $this->render('products', ['category' => $category, 'products' => $products, 'totalpage' => $totalpage, 'offset' => $offset, 'pages' => $pages]);
+        $pages = $this->pages('pages');
+        $offset = $this->offset($pages);
+        $totalpage = $this->_products->countProductPrice($price1, $price2);
+        $totalpage = $this->totalpage($totalpage);
+        $products = $this->_products->getProductPrice(ord, $price1, $price2, limit, $offset);
+        $category = $this->_category->getData('', '', '', '', '');
+        return $this->render('products', ['category' => $category, 'products' => $products, 'totalpage' => $totalpage, 'pages' => $pages]);
 
     }
 
+
+    /*
 
     function test()
     {
@@ -207,6 +219,7 @@ class Products extends BaseController
 
         echo json_encode($r);
     }
+    */
 
 }
 
