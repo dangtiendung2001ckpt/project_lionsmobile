@@ -42,4 +42,15 @@ class BaseController
         $offset = ($pages - 1) * limit;
         return $offset;
     }
+
+    public function getParam($key, $default = null)
+    {
+        $params = $this->getParams();
+        return array_get($params, $key, $default);
+    }
+
+    public function getParams()
+    {
+        return $_REQUEST;
+    }
 }

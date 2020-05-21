@@ -4,23 +4,27 @@ namespace Controllers\Frontend;
 
 use Controllers\BaseController;
 use Models\Provincial;
+use Validators\UserValidator;
 
 class User extends BaseController
 {
     protected $_module = 'frontend';
     protected $_provincial;
     protected $_user;
+    protected $_userValidators;
 
     function __construct()
     {
-        $this->_provincial = new Provincial();
-        $this->_user = new \Models\User();
+        //$this->_provincial = new Provincial();
+        //$this->_user = new \Models\User();
+        $this->_userValidators = new UserValidator();
+
     }
 
     public function homes()
     {
-        $provincial = $this->_provincial->getAllData();
-        return $this->render('registration', ['provincial' => $provincial]);
+        //$provincial = $this->_provincial->getAllData();
+        return $this->render('registration', []);
     }
 
     function loginUser($username, $password)
@@ -32,12 +36,9 @@ class User extends BaseController
         $user = $this->_user->getValue($username);
         $_SESSION["user_id"] = $user['user_id'];
         $_SESSION["username"] = $user['user_name'];
-        if (isset($_GET['proid']) && $_GET['proid'] != "") {
-            $proid = $_GET['proid'];
-            return header("location:index.php?control=products&action=details&id=$proid");
-        } else {
-            return header("location:index.php");
-        }
+       // $this->getParam('proid');
+        return header("location:index.php");
+
     }
 
 
@@ -67,6 +68,15 @@ class User extends BaseController
 
     public function checkData()
     {
+        if (!$this->_userValidators->validateLogin($this->getParams())) {
+            setFlashError($this->_userValidators->getErrors());
+            return redirect(url([
+                'control'=>'',
+                'params' => ['id' => 1]
+            ]));
+        }
+
+
         $proid = isset($_GET['proid']) ? $_GET['proid'] : '';
         if (!isset($_POST["submit"]) && $_POST["username"] == "" && $_POST["pass"] == "" && $_POST["password"] == "" && $_POST["phone"] == "" && $_POST["provincial"] == "" && $_POST["district"] == "" && $_POST["ward"] == "" && $_POST["address"] == "") {
             $_SESSION['error_login'] = "Bạn cần nhập đầy đủ thông tin";
@@ -93,7 +103,7 @@ class User extends BaseController
             return header("location:index.php?control=user&proid=$proid");
         }
         $pass = md5($pass);
-        $num_rows = $this->_user->numRow('user_name',$username);
+        $num_rows = $this->_user->numRow('user_name', $username);
         if ($num_rows > 0) {
             $_SESSION['error_login'] = "Tài khoản đã tồn tại";
             return header("location:index.php?control=user&proid=$proid");

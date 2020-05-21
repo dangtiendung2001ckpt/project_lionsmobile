@@ -28,7 +28,7 @@
 			</thead>
 			<tbody style="text-align: center;">
             <?php
-            $offset= $offset+1;
+            $offset=isset($offset) ? $offset+1 : 1;
             foreach ($products as $value) {
                 ?>
                 <tr class="odd gradeX">
@@ -58,7 +58,7 @@
                     <td class="center"> </td>
                     <td></td>
                     <td></td>
-                    <td><?php  numberpages($totalpage,$pages,'products'); ?></td>
+                    <td><?php  numberPages($totalpage,$pages,'product'); ?></td>
                     <td></td>
                     <td></td>
                     <td></td>

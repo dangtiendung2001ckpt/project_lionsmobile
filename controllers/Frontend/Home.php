@@ -19,7 +19,7 @@ class Home extends BaseController
 
     function homes()
     {
-       $products = $this->_model->getData(ord,limit,'0','','');
+       $products = $this->_model->getData(['defaults'=>'1']);
         return $this->render('home',['products'=>$products]);
     }
 

@@ -10,11 +10,7 @@
                     <p class="note"></p>
                     <input style="background-color: #444444;color: white;height: 40px;text-align: center;"   type="submit"  value="Đăng nhập">
                     <br/>
-                    <span style="color: red;"><?php if (isset($_SESSION['error'])){
-                        $error=$_SESSION['error'];
-                        echo $error;
-                        unset($_SESSION['error']);
-                        } ?></span>
+                    <span style="color: red;"></span>
             </div>
             </form>
 
@@ -34,41 +30,43 @@
                         <tr>
                             <td>
                                 <div style>
-                                    <input type="text" name="username"   maxlength="20" value="<?php if (isset($_SESSION['form_name'])){ echo $_SESSION['form_name'];} ?>"  placeholder="Tên đăng nhập" required>
+                                    <input type="text" name="username"   maxlength="20" value="<?php if (isset($_SESSION['form_name'])){ echo $_SESSION['form_name'];} ?>"  placeholder="Tên đăng nhập" >
                                 </div>
 
                                 <div  style="padding-top: 5px;">
-                                    <input style="width: 356px;height: 28px;" maxlength="8" name="pass" type="password" value="" placeholder="Mật khẩu" required>
+                                    <input style="width: 356px;height: 28px;" maxlength="8" name="pass" type="password" value="" placeholder="Mật khẩu" >
                                 </div>
 
                                 <div style="padding-top: 10px;">
-                                    <input style="width: 356px;height: 28px;" maxlength="8" name="password" type="password" value="" placeholder="Nhập lại mật khẩu" required>
+                                    <input style="width: 356px;height: 28px;" maxlength="8" name="password" type="password" value="" placeholder="Nhập lại mật khẩu" >
                                 </div>
                                 <div style="padding-top: 10px;">
-                                    <input style="width: 344px;height: 19px;" min="1" max="100000000000" type="number" name="phone" value="<?php if (isset($_SESSION['form_phone'])){ echo $_SESSION['form_phone'];} ?>"  placeholder="Số điện thoại" required>
+                                    <input style="width: 344px;height: 19px;" min="1" max="100000000000" type="number" name="phone" value="<?php if (isset($_SESSION['form_phone'])){ echo $_SESSION['form_phone'];} ?>"  placeholder="Số điện thoại" >
                                 </div>
                             </td>
                             <td>
                                 <div>
-                                    <select id="provincial" name="provincial"  class="frm-field" required>
+                                    <select id="provincial" name="provincial"  class="frm-field" >
                                         <option value="<?php if (isset($_SESSION['form_provincial']) && $_SESSION['form_provincial'] ){ echo $_SESSION['form_provincial'];}?>"><?php if (isset($_SESSION['form_provincial'])){ echo $_SESSION['form_provincial'];}else{ echo "Chọn tỉnh";} ?></option>
+                                        <option>abc</option>
                                         <?php
                                         foreach($provincial as $value){
                                             ?>
                                             <option><?php echo $value['provincial_name']; ?></option>
+
                                             <?php
                                         }
                                         ?>
                                     </select>
                                 </div>
                                 <div >
-                                    <input type="text" name="district" maxlength="20"  value="<?php if (isset($_SESSION['form_district'])){ echo $_SESSION['form_district'];} ?>" placeholder="Quận,huyện"  required>
+                                    <input type="text" name="district" maxlength="20"  value="<?php if (isset($_SESSION['form_district'])){ echo $_SESSION['form_district'];} ?>" placeholder="Quận,huyện"  >
                                 </div>
                                 <div style>
-                                    <input type="text" name="ward" maxlength="20" value="<?php if (isset($_SESSION['form_ward'])){ echo $_SESSION['form_ward'];} ?>" placeholder="Xã,phường"  required>
+                                    <input type="text" name="ward" maxlength="20" value="<?php if (isset($_SESSION['form_ward'])){ echo $_SESSION['form_ward'];} ?>" placeholder="Xã,phường"  >
                                 </div>
                                 <div style>
-                                    <input type="text" name="address" maxlength="30" value="<?php if (isset($_SESSION['form_address'])){ echo $_SESSION['form_address'];} ?>" placeholder="Đường,số nhà" required>
+                                    <input type="text" name="address" maxlength="30" value="<?php if (isset($_SESSION['form_address'])){ echo $_SESSION['form_address'];} ?>" placeholder="Đường,số nhà" >
                                 </div>
                             </td>
 
@@ -79,11 +77,7 @@
                         echo "Tạo tài khoản mới";
                     } ?>">
                 </form>
-                <span id="error" style="color: red;"><?php if (isset($_SESSION['error_login'])){
-                        $error=$_SESSION['error_login'];
-                        echo $error;
-                        unset($_SESSION['error_login']);
-                    } ?></span>
+                <span id="error" style="color: red;"><?php var_dump(getFlashError());?></span>
             </div>
             <div class="clear"></div>
         </div>

@@ -70,6 +70,10 @@ class Products extends BaseController
 
     public function details()
     {
+        if (empty($_GET['id'])){
+           $error = error_log("aaaaaa ");
+            return $error;
+        }
         $id = $this->_valued->getParam('id', 'notnul');
         if ($id == false) {
             return $this->header($this->_control, '', '');

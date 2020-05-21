@@ -13,8 +13,8 @@
                 </li>
 				 <li><a class="menuitem">Sản phẩm</a>
                     <ul class="submenu">
-                        <li><a href="<?php echo pages('products','')?>">Các sản phẩm</a></li>
-                        <li><a href="<?php echo pages('products','viewAddnewProduct')?>">Thêm sản phẩm</a></li>
+                        <li><a href="<?php echo pages('product','')?>">Các sản phẩm</a></li>
+                        <li><a href="<?php echo pages('product','viewAddNew')?>">Thêm sản phẩm</a></li>
                     </ul>
                 </li>
                  <li><a class="menuitem">Hãng điện thoại</a>

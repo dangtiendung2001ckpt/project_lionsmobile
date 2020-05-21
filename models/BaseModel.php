@@ -73,28 +73,50 @@ class BaseModel
         return $row;
     }
 
-    protected function _numRows(){
+    protected function _numRows()
+    {
         if (!$this->_result) {
             return 0;
         }
         return $this->_result->num_rows;
     }
 
-    public function getData($ord,$limit,$offset,$columnName,$key){
+    public function getData($data = [])
+    {
         $sql = "SELECT * FROM $this->_tableName";
-        if (!empty($key)){
-            $sql.=" WHERE $columnName = '$key' ";
+        foreach ($data as $key => $item) {
+            if (in_array($key, $this->_fillAble)) {
+                $columns[] = $key;
+                $values[] = $item;
+            }
         }
-        if (!empty($ord)){
-            $sql.=" ORDER BY $this->_primaryKey $ord";
+        if (isset($columns)) {
+            $sql .= " WHERE $columns[0] = '$values[0]' ";
         }
-        if (!empty($limit)){
-            $sql.=" LIMIT $limit OFFSET $offset";
+        if (isset($columns[1])) {
+            for ($i = 1; $i < count($columns); $i++) {
+                $sql .= "AND $columns[$i] = '$values[$i]' ";
+            }
+        }
+        if (array_key_exists('ord', $data)) {
+            $data['ord'] = strtoupper($data['ord']);
+            if ($data['ord'] == 'ASC' || $data['ord'] == 'DESC') {
+                $sql .= " ORDER BY $this->_primaryKey " . $data['ord'];
+            }
+        }
+        if (array_key_exists('limit', $data)) {
+            $limit = (int)$data['limit'];
+            $sql .= " LIMIT $limit ";
+            if (array_key_exists('offset', $data)) {
+                $offset = (int)$data['offset'];
+                $sql .= "OFFSET $offset";
+
+            }
         }
         $this->execute($sql);
         $count = $this->_numRows();
         $rows = [];
-        if((int)$count > 0) {
+        if ((int)$count > 0) {
             while ($row = $this->_getRow()) {
                 $rows[] = $row;
             }
@@ -103,16 +125,25 @@ class BaseModel
     }
 
 
-
-    public function numRow($columnName,$key){
-        $sql ="SELECT COUNT($this->_primaryKey) FROM $this->_tableName";
-        if (!empty($key)){
-            $sql.=" where $columnName = '$key'";
+    public function count($data = [])
+    {
+        $sql = "SELECT * FROM $this->_tableName";
+        foreach ($data as $key => $item) {
+            if (in_array($key, $this->_fillAble)) {
+                $columns[] = $key;
+                $values[] = $item;
+            }
+        }
+        if (isset($columns)) {
+            $sql .= " WHERE $columns[0] = '$values[0]' ";
+        }
+        if (isset($columns[1])) {
+            for ($i = 1; $i < count($columns); $i++) {
+                $sql .= "AND $columns[$i] = '$values[$i]' ";
+            }
         }
         $this->execute($sql);
-        $rows = [];
-        $rows [] = $this->_getRow();
-        return $rows[0]["COUNT($this->_primaryKey)"];
+        return $this->_result->num_rows;
 
     }
 
