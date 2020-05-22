@@ -42,6 +42,7 @@ class Login extends BaseController
             return redirect(url([]));
         }
         setFlashSession('admin', $name);
+        setFlashSession('admin_id',8);
         return redirect(url([
             'control' => 'home',
             'action' => ''

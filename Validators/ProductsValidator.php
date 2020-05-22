@@ -19,9 +19,6 @@ class ProductsValidator extends BaseValidator
         if (array_get($params, 'color') == ''){
             $this->addErrors('color_require','bạn chưa nhập màu sắc');
         }
-        if (array_get($params, 'img') == ''){
-            $this->addErrors('img_require','bạn chưa nhập màu sắc');
-        }
         if (array_get($params, 'data') == ''){
             $this->addErrors('data_require','bạn chưa nhập data');
         }
@@ -34,7 +31,7 @@ class ProductsValidator extends BaseValidator
         if (array_get($params, 'manhinh') == ''){
             $this->addErrors('man_hinh_require','bạn chưa nhập màn hình');
         }
-        if (array_get($params, 'he_dieu_hanh') == ''){
+        if (array_get($params, 'hdh') == ''){
             $this->addErrors('he_dieu_hanh_require','bạn chưa nhập hẹ điều hành');
         }
         if (array_get($params, 'cpu') == ''){
@@ -50,7 +47,7 @@ class ProductsValidator extends BaseValidator
             $this->addErrors('cam_sau_require','bạn chưa nhập cammera truoc');
         }
         if (array_get($params, 'camerasau') == ''){
-            $this->addErrors('cam_truoc_require','bạn chưa nhập camerasau');
+            $this->addErrors('cam_sau_require','bạn chưa nhập camera truoc');
         }
         return $this->isValid();
 
