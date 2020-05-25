@@ -1,0 +1,199 @@
+[25-May-2020 09:09:03 Europe/Berlin] PHP Notice:  Undefined variable: aaaa in C:\xampp\htdocs\project_lionsmobile\Controllers\Frontend\Home.php on line 37
+[25-May-2020 09:09:03 Europe/Berlin] PHP Fatal error:  Uncaught Error: Class 'Controllers\Frontend\Home' not found in C:\xampp\htdocs\project_lionsmobile\index.php:23
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\project_lionsmobile\index.php on line 23
+[25-May-2020 09:19:24 Europe/Berlin] PHP Notice:  Undefined variable: aaaa in C:\xampp\htdocs\project_lionsmobile\Controllers\Frontend\Home.php on line 34
+[25-May-2020 09:19:24 Europe/Berlin] PHP Fatal error:  Uncaught Error: Class 'Controllers\Frontend\Home' not found in C:\xampp\htdocs\project_lionsmobile\index.php:25
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\project_lionsmobile\index.php on line 25
+[25-May-2020 09:19:25 Europe/Berlin] PHP Notice:  Undefined variable: aaaa in C:\xampp\htdocs\project_lionsmobile\Controllers\Frontend\Home.php on line 34
+[25-May-2020 09:19:25 Europe/Berlin] PHP Fatal error:  Uncaught Error: Class 'Controllers\Frontend\Home' not found in C:\xampp\htdocs\project_lionsmobile\index.php:25
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\project_lionsmobile\index.php on line 25
+[25-May-2020 09:19:47 Europe/Berlin] PHP Parse error:  syntax error, unexpected '{', expecting '(' in C:\xampp\htdocs\project_lionsmobile\Controllers\Frontend\Home.php on line 35
+[25-May-2020 10:23:29 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to undefined method Models\Category::commit() in C:\xampp\htdocs\project_lionsmobile\Controllers\Backend\Product.php:178
+Stack trace:
+#0 C:\xampp\htdocs\project_lionsmobile\index.php(30): Controllers\Backend\Product->updateProduct()
+#1 {main}
+  thrown in C:\xampp\htdocs\project_lionsmobile\Controllers\Backend\Product.php on line 178
+[25-May-2020 10:26:29 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to undefined method Models\Category::commit() in C:\xampp\htdocs\project_lionsmobile\Controllers\Backend\Product.php:178
+Stack trace:
+#0 C:\xampp\htdocs\project_lionsmobile\index.php(30): Controllers\Backend\Product->updateProduct()
+#1 {main}
+  thrown in C:\xampp\htdocs\project_lionsmobile\Controllers\Backend\Product.php on line 178
+[25-May-2020 10:27:08 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to undefined method Models\Category::commit() in C:\xampp\htdocs\project_lionsmobile\Controllers\Backend\Product.php:178
+Stack trace:
+#0 C:\xampp\htdocs\project_lionsmobile\index.php(30): Controllers\Backend\Product->updateProduct()
+#1 {main}
+  thrown in C:\xampp\htdocs\project_lionsmobile\Controllers\Backend\Product.php on line 178
+[25-May-2020 10:27:37 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to undefined method Models\Category::commit() in C:\xampp\htdocs\project_lionsmobile\Controllers\Backend\Product.php:179
+Stack trace:
+#0 C:\xampp\htdocs\project_lionsmobile\index.php(30): Controllers\Backend\Product->updateProduct()
+#1 {main}
+  thrown in C:\xampp\htdocs\project_lionsmobile\Controllers\Backend\Product.php on line 179
+[25-May-2020 10:27:53 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to undefined method Models\Category::commit() in C:\xampp\htdocs\project_lionsmobile\Controllers\Backend\Product.php:178
+Stack trace:
+#0 C:\xampp\htdocs\project_lionsmobile\index.php(30): Controllers\Backend\Product->updateProduct()
+#1 {main}
+  thrown in C:\xampp\htdocs\project_lionsmobile\Controllers\Backend\Product.php on line 178
+[25-May-2020 10:29:08 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to undefined method Models\Category::commit() in C:\xampp\htdocs\project_lionsmobile\Controllers\Backend\Product.php:178
+Stack trace:
+#0 C:\xampp\htdocs\project_lionsmobile\index.php(30): Controllers\Backend\Product->updateProduct()
+#1 {main}
+  thrown in C:\xampp\htdocs\project_lionsmobile\Controllers\Backend\Product.php on line 178
+[25-May-2020 10:40:45 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to undefined method Models\Category::commit() in C:\xampp\htdocs\project_lionsmobile\Controllers\Backend\Product.php:178
+Stack trace:
+#0 C:\xampp\htdocs\project_lionsmobile\index.php(30): Controllers\Backend\Product->updateProduct()
+#1 {main}
+  thrown in C:\xampp\htdocs\project_lionsmobile\Controllers\Backend\Product.php on line 178
+[25-May-2020 10:40:46 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to undefined method Models\Category::commit() in C:\xampp\htdocs\project_lionsmobile\Controllers\Backend\Product.php:178
+Stack trace:
+#0 C:\xampp\htdocs\project_lionsmobile\index.php(30): Controllers\Backend\Product->updateProduct()
+#1 {main}
+  thrown in C:\xampp\htdocs\project_lionsmobile\Controllers\Backend\Product.php on line 178
+[25-May-2020 10:42:50 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to undefined method Models\Category::commit() in C:\xampp\htdocs\project_lionsmobile\Controllers\Backend\Product.php:178
+Stack trace:
+#0 C:\xampp\htdocs\project_lionsmobile\index.php(30): Controllers\Backend\Product->updateProduct()
+#1 {main}
+  thrown in C:\xampp\htdocs\project_lionsmobile\Controllers\Backend\Product.php on line 178
+[25-May-2020 10:45:17 Europe/Berlin] PHP Notice:  Undefined property: Models\Category::$error in C:\xampp\htdocs\project_lionsmobile\Controllers\Backend\Product.php on line 174
+[25-May-2020 10:45:17 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to undefined method Models\Category::commit() in C:\xampp\htdocs\project_lionsmobile\Controllers\Backend\Product.php:178
+Stack trace:
+#0 C:\xampp\htdocs\project_lionsmobile\index.php(30): Controllers\Backend\Product->updateProduct()
+#1 {main}
+  thrown in C:\xampp\htdocs\project_lionsmobile\Controllers\Backend\Product.php on line 178
+[25-May-2020 10:45:18 Europe/Berlin] PHP Notice:  Undefined property: Models\Category::$error in C:\xampp\htdocs\project_lionsmobile\Controllers\Backend\Product.php on line 174
+[25-May-2020 10:45:18 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to undefined method Models\Category::commit() in C:\xampp\htdocs\project_lionsmobile\Controllers\Backend\Product.php:178
+Stack trace:
+#0 C:\xampp\htdocs\project_lionsmobile\index.php(30): Controllers\Backend\Product->updateProduct()
+#1 {main}
+  thrown in C:\xampp\htdocs\project_lionsmobile\Controllers\Backend\Product.php on line 178
+[25-May-2020 10:45:48 Europe/Berlin] PHP Notice:  Undefined property: Models\Category::$error in C:\xampp\htdocs\project_lionsmobile\Controllers\Backend\Product.php on line 174
+[25-May-2020 10:45:48 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to undefined method Models\Category::commit() in C:\xampp\htdocs\project_lionsmobile\Controllers\Backend\Product.php:178
+Stack trace:
+#0 C:\xampp\htdocs\project_lionsmobile\index.php(30): Controllers\Backend\Product->updateProduct()
+#1 {main}
+  thrown in C:\xampp\htdocs\project_lionsmobile\Controllers\Backend\Product.php on line 178
+[25-May-2020 10:46:31 Europe/Berlin] PHP Notice:  Undefined property: Models\Category::$error in C:\xampp\htdocs\project_lionsmobile\Controllers\Backend\Product.php on line 174
+[25-May-2020 10:46:31 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to undefined method Models\Category::commit() in C:\xampp\htdocs\project_lionsmobile\Controllers\Backend\Product.php:178
+Stack trace:
+#0 C:\xampp\htdocs\project_lionsmobile\index.php(30): Controllers\Backend\Product->updateProduct()
+#1 {main}
+  thrown in C:\xampp\htdocs\project_lionsmobile\Controllers\Backend\Product.php on line 178
+[25-May-2020 10:46:32 Europe/Berlin] PHP Notice:  Undefined property: Models\Category::$error in C:\xampp\htdocs\project_lionsmobile\Controllers\Backend\Product.php on line 174
+[25-May-2020 10:46:32 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to undefined method Models\Category::commit() in C:\xampp\htdocs\project_lionsmobile\Controllers\Backend\Product.php:178
+Stack trace:
+#0 C:\xampp\htdocs\project_lionsmobile\index.php(30): Controllers\Backend\Product->updateProduct()
+#1 {main}
+  thrown in C:\xampp\htdocs\project_lionsmobile\Controllers\Backend\Product.php on line 178
+[25-May-2020 10:47:17 Europe/Berlin] PHP Notice:  Undefined property: Models\Category::$error in C:\xampp\htdocs\project_lionsmobile\Controllers\Backend\Product.php on line 174
+[25-May-2020 10:47:17 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to undefined method Models\Category::commit() in C:\xampp\htdocs\project_lionsmobile\Controllers\Backend\Product.php:178
+Stack trace:
+#0 C:\xampp\htdocs\project_lionsmobile\index.php(30): Controllers\Backend\Product->updateProduct()
+#1 {main}
+  thrown in C:\xampp\htdocs\project_lionsmobile\Controllers\Backend\Product.php on line 178
+[25-May-2020 10:47:46 Europe/Berlin] PHP Notice:  Undefined property: Models\Category::$error in C:\xampp\htdocs\project_lionsmobile\Controllers\Backend\Product.php on line 174
+[25-May-2020 10:47:46 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to undefined method Models\Category::commit() in C:\xampp\htdocs\project_lionsmobile\Controllers\Backend\Product.php:178
+Stack trace:
+#0 C:\xampp\htdocs\project_lionsmobile\index.php(30): Controllers\Backend\Product->updateProduct()
+#1 {main}
+  thrown in C:\xampp\htdocs\project_lionsmobile\Controllers\Backend\Product.php on line 178
+[25-May-2020 10:47:57 Europe/Berlin] PHP Notice:  Undefined property: Models\Category::$error in C:\xampp\htdocs\project_lionsmobile\Controllers\Backend\Product.php on line 174
+[25-May-2020 10:47:57 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to undefined method Models\Category::commit() in C:\xampp\htdocs\project_lionsmobile\Controllers\Backend\Product.php:178
+Stack trace:
+#0 C:\xampp\htdocs\project_lionsmobile\index.php(30): Controllers\Backend\Product->updateProduct()
+#1 {main}
+  thrown in C:\xampp\htdocs\project_lionsmobile\Controllers\Backend\Product.php on line 178
+[25-May-2020 10:47:58 Europe/Berlin] PHP Notice:  Undefined property: Models\Category::$error in C:\xampp\htdocs\project_lionsmobile\Controllers\Backend\Product.php on line 174
+[25-May-2020 10:47:58 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to undefined method Models\Category::commit() in C:\xampp\htdocs\project_lionsmobile\Controllers\Backend\Product.php:178
+Stack trace:
+#0 C:\xampp\htdocs\project_lionsmobile\index.php(30): Controllers\Backend\Product->updateProduct()
+#1 {main}
+  thrown in C:\xampp\htdocs\project_lionsmobile\Controllers\Backend\Product.php on line 178
+[25-May-2020 10:48:32 Europe/Berlin] PHP Notice:  Undefined property: Models\Category::$error in C:\xampp\htdocs\project_lionsmobile\Controllers\Backend\Product.php on line 174
+[25-May-2020 10:48:32 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to undefined method Models\Category::commit() in C:\xampp\htdocs\project_lionsmobile\Controllers\Backend\Product.php:178
+Stack trace:
+#0 C:\xampp\htdocs\project_lionsmobile\index.php(30): Controllers\Backend\Product->updateProduct()
+#1 {main}
+  thrown in C:\xampp\htdocs\project_lionsmobile\Controllers\Backend\Product.php on line 178
+[25-May-2020 10:49:15 Europe/Berlin] PHP Notice:  Undefined property: Models\Category::$error in C:\xampp\htdocs\project_lionsmobile\Controllers\Backend\Product.php on line 174
+[25-May-2020 10:49:15 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to undefined method Models\Category::commit() in C:\xampp\htdocs\project_lionsmobile\Controllers\Backend\Product.php:178
+Stack trace:
+#0 C:\xampp\htdocs\project_lionsmobile\index.php(30): Controllers\Backend\Product->updateProduct()
+#1 {main}
+  thrown in C:\xampp\htdocs\project_lionsmobile\Controllers\Backend\Product.php on line 178
+[25-May-2020 10:50:55 Europe/Berlin] PHP Notice:  Undefined property: Models\Category::$error in C:\xampp\htdocs\project_lionsmobile\Controllers\Backend\Product.php on line 175
+[25-May-2020 10:50:55 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to undefined method Models\Category::commit() in C:\xampp\htdocs\project_lionsmobile\Controllers\Backend\Product.php:179
+Stack trace:
+#0 C:\xampp\htdocs\project_lionsmobile\index.php(30): Controllers\Backend\Product->updateProduct()
+#1 {main}
+  thrown in C:\xampp\htdocs\project_lionsmobile\Controllers\Backend\Product.php on line 179
+[25-May-2020 10:51:43 Europe/Berlin] PHP Notice:  Undefined property: Models\Category::$error in C:\xampp\htdocs\project_lionsmobile\Controllers\Backend\Product.php on line 175
+[25-May-2020 10:51:43 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to undefined method Models\Category::commit() in C:\xampp\htdocs\project_lionsmobile\Controllers\Backend\Product.php:179
+Stack trace:
+#0 C:\xampp\htdocs\project_lionsmobile\index.php(30): Controllers\Backend\Product->updateProduct()
+#1 {main}
+  thrown in C:\xampp\htdocs\project_lionsmobile\Controllers\Backend\Product.php on line 179
+[25-May-2020 10:51:47 Europe/Berlin] PHP Notice:  Undefined property: Models\Category::$error in C:\xampp\htdocs\project_lionsmobile\Controllers\Backend\Product.php on line 175
+[25-May-2020 10:51:47 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to undefined method Models\Category::commit() in C:\xampp\htdocs\project_lionsmobile\Controllers\Backend\Product.php:179
+Stack trace:
+#0 C:\xampp\htdocs\project_lionsmobile\index.php(30): Controllers\Backend\Product->updateProduct()
+#1 {main}
+  thrown in C:\xampp\htdocs\project_lionsmobile\Controllers\Backend\Product.php on line 179
+[25-May-2020 10:51:48 Europe/Berlin] PHP Notice:  Undefined property: Models\Category::$error in C:\xampp\htdocs\project_lionsmobile\Controllers\Backend\Product.php on line 175
+[25-May-2020 10:51:48 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to undefined method Models\Category::commit() in C:\xampp\htdocs\project_lionsmobile\Controllers\Backend\Product.php:179
+Stack trace:
+#0 C:\xampp\htdocs\project_lionsmobile\index.php(30): Controllers\Backend\Product->updateProduct()
+#1 {main}
+  thrown in C:\xampp\htdocs\project_lionsmobile\Controllers\Backend\Product.php on line 179
+[25-May-2020 10:54:14 Europe/Berlin] PHP Notice:  Undefined property: Models\Category::$error in C:\xampp\htdocs\project_lionsmobile\Controllers\Backend\Product.php on line 175
+[25-May-2020 10:54:14 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to undefined method Models\Category::commit() in C:\xampp\htdocs\project_lionsmobile\Controllers\Backend\Product.php:179
+Stack trace:
+#0 C:\xampp\htdocs\project_lionsmobile\index.php(30): Controllers\Backend\Product->updateProduct()
+#1 {main}
+  thrown in C:\xampp\htdocs\project_lionsmobile\Controllers\Backend\Product.php on line 179
+[25-May-2020 10:54:52 Europe/Berlin] PHP Notice:  Undefined property: Models\Category::$error in C:\xampp\htdocs\project_lionsmobile\Controllers\Backend\Product.php on line 175
+[25-May-2020 10:54:52 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to undefined method Models\Category::commit() in C:\xampp\htdocs\project_lionsmobile\Controllers\Backend\Product.php:179
+Stack trace:
+#0 C:\xampp\htdocs\project_lionsmobile\index.php(30): Controllers\Backend\Product->updateProduct()
+#1 {main}
+  thrown in C:\xampp\htdocs\project_lionsmobile\Controllers\Backend\Product.php on line 179
+[25-May-2020 10:58:28 Europe/Berlin] PHP Notice:  Undefined property: Models\Category::$error in C:\xampp\htdocs\project_lionsmobile\Controllers\Backend\Product.php on line 175
+[25-May-2020 10:58:28 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to undefined method Models\Category::commit() in C:\xampp\htdocs\project_lionsmobile\Controllers\Backend\Product.php:179
+Stack trace:
+#0 C:\xampp\htdocs\project_lionsmobile\index.php(30): Controllers\Backend\Product->updateProduct()
+#1 {main}
+  thrown in C:\xampp\htdocs\project_lionsmobile\Controllers\Backend\Product.php on line 179
+[25-May-2020 10:58:29 Europe/Berlin] PHP Notice:  Undefined property: Models\Category::$error in C:\xampp\htdocs\project_lionsmobile\Controllers\Backend\Product.php on line 175
+[25-May-2020 10:58:29 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to undefined method Models\Category::commit() in C:\xampp\htdocs\project_lionsmobile\Controllers\Backend\Product.php:179
+Stack trace:
+#0 C:\xampp\htdocs\project_lionsmobile\index.php(30): Controllers\Backend\Product->updateProduct()
+#1 {main}
+  thrown in C:\xampp\htdocs\project_lionsmobile\Controllers\Backend\Product.php on line 179
+[25-May-2020 10:58:29 Europe/Berlin] PHP Notice:  Undefined property: Models\Category::$error in C:\xampp\htdocs\project_lionsmobile\Controllers\Backend\Product.php on line 175
+[25-May-2020 10:58:29 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to undefined method Models\Category::commit() in C:\xampp\htdocs\project_lionsmobile\Controllers\Backend\Product.php:179
+Stack trace:
+#0 C:\xampp\htdocs\project_lionsmobile\index.php(30): Controllers\Backend\Product->updateProduct()
+#1 {main}
+  thrown in C:\xampp\htdocs\project_lionsmobile\Controllers\Backend\Product.php on line 179
+[25-May-2020 10:58:29 Europe/Berlin] PHP Notice:  Undefined property: Models\Category::$error in C:\xampp\htdocs\project_lionsmobile\Controllers\Backend\Product.php on line 175
+[25-May-2020 10:58:29 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to undefined method Models\Category::commit() in C:\xampp\htdocs\project_lionsmobile\Controllers\Backend\Product.php:179
+Stack trace:
+#0 C:\xampp\htdocs\project_lionsmobile\index.php(30): Controllers\Backend\Product->updateProduct()
+#1 {main}
+  thrown in C:\xampp\htdocs\project_lionsmobile\Controllers\Backend\Product.php on line 179
+[25-May-2020 10:58:30 Europe/Berlin] PHP Notice:  Undefined property: Models\Category::$error in C:\xampp\htdocs\project_lionsmobile\Controllers\Backend\Product.php on line 175
+[25-May-2020 10:58:30 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to undefined method Models\Category::commit() in C:\xampp\htdocs\project_lionsmobile\Controllers\Backend\Product.php:179
+Stack trace:
+#0 C:\xampp\htdocs\project_lionsmobile\index.php(30): Controllers\Backend\Product->updateProduct()
+#1 {main}
+  thrown in C:\xampp\htdocs\project_lionsmobile\Controllers\Backend\Product.php on line 179
+[25-May-2020 10:58:30 Europe/Berlin] PHP Notice:  Undefined property: Models\Category::$error in C:\xampp\htdocs\project_lionsmobile\Controllers\Backend\Product.php on line 175
+[25-May-2020 10:58:30 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to undefined method Models\Category::commit() in C:\xampp\htdocs\project_lionsmobile\Controllers\Backend\Product.php:179
+Stack trace:
+#0 C:\xampp\htdocs\project_lionsmobile\index.php(30): Controllers\Backend\Product->updateProduct()
+#1 {main}
+  thrown in C:\xampp\htdocs\project_lionsmobile\Controllers\Backend\Product.php on line 179

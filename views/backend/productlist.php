@@ -42,8 +42,7 @@
                     <td><?php echo $value['so_luong'];?></td>
                     <td><?php echo format_currency($value['price']);?>vnđ</td>
                     <td>
-                        <a style="color: green;" href="<?php echo actions('products','viewAddnewProduct',$value['product_id'])?>">Edit</a> ||
-                        <a style="color: green;" href="<?php echo actions('products','quickAdd',$value['product_id'])?>">Addnew</a> ||
+                        <a style="color: green;" href="<?php echo actions('product','updateProduct',$value['product_id'])?>">Edit</a> ||
                         <a onclick="return confirm('Bạn chắc chắn muốn xóa sản phẩm này?')" style="color: red;" href="<?php echo actions('products','delproduct',$value['product_id']);?>"> Delete</a></td>
                     </td>
                 </tr>

@@ -1,4 +1,5 @@
 <?php
+
 namespace Controllers\Frontend;
 
 
@@ -25,5 +26,4 @@ class Home extends BaseController
 
 
 }
-
 ?>

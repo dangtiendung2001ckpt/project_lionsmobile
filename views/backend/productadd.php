@@ -2,12 +2,13 @@
 <div class="grid_10">
     <div class="box round first grid">
         <h2>Thêm mới Sản phẩm</h2>
-        <div class="block">               
+        <div class="block">
+
          <form action="<?php
          if ($_GET['action'] == "quickAdd"){
              echo pages('products','addnewProduct');
          }elseif (isset($_GET['id']) && !empty($data)){
-             echo actions('products','updateProduct',$_GET['id']);
+             echo actions('product','updateProduct',$_GET['id']);
          }else{
              echo pages('product','addNew');
          }
@@ -19,7 +20,7 @@
                         <label>Tên sản phẩm</label>
                     </td>
                     <td>
-                        <input type="text" maxlength="50" name="name" placeholder="Tên sản phẩm..." value="<?php echo checked($product,'name');?>" <?php addnewpro(); ?> class="medium"    />
+                        <input type="text" maxlength="50" name="name" placeholder="Tên sản phẩm..." value="<?php echo checked($product,'name'); ?>" class="medium"    />
                     </td>
                 </tr>
 				<tr>
@@ -28,7 +29,7 @@
                     </td>
                     <td>
                         <select id="select" name="category" onchange="change_country(this.value)"   >
-                            <option value="<?php echo checked($product,'category_id');?>"><?php if (isset($_GET["id"]) && !empty($product)){ echo checked($product,'category_name'); }else{ echo "Chọn hãng điện thoại";} ?></option>
+                            <option value="<?php echo checked($product,'category_id');?>"><?php if (isset($_GET["id"]) && !empty($product)){ echo checked($product,'category_id'); }else{ echo "Chọn hãng điện thoại";} ?></option>
                             <?php
                                 foreach ($category as $value) {
                                     ?>
@@ -69,7 +70,7 @@
                     </td>
                     <td>
                         <select id="select" name="data"   >
-                            <option value="<?php echo checked($product,'dung_luong');?>"><?php if (isset($_GET["id"]) && !empty($product)){ echo checked($product,'dung_luong'); }else{ echo "Chọn dung lượng bộ nhớ";} ?></option>
+                            <option value="<?php echo checked($product,'dung_luong');?>"><?php echo checked($product,'dung_luong').'GB'; ?></option>
                             <option value="16">16GB</option>
                             <option value="32">32GB</option>
                             <option value="64">64GB</option>

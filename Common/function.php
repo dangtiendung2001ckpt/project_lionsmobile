@@ -43,7 +43,7 @@ function url($array)
 
 function redirect($url)
 {
-    return header('location:' . $url);
+   return header('location:' . $url);
 }
 
 function array_get($array, $key, $default = null)
@@ -199,7 +199,7 @@ function success()
 function checked($data, $name)
 {
     if (!empty($data) && isset($data)) {
-        return $data["$name"];
+        return $data[0]["$name"];
     }
 }
 

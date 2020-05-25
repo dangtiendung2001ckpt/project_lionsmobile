@@ -8,6 +8,7 @@ class BaseModel
     protected $_tableName;
     protected $_fillAble;
     protected $_primaryKey;
+    public $errors = [];
 
     protected function dbConnect()
     {
@@ -22,7 +23,12 @@ class BaseModel
     {
         $this->dbConnect();
         $this->_result = $this->_conn->query($sql);
-        return $this->_result;
+        if ($this->_result == false){
+            $this->errors=['error'=>'dont query'];
+        }
+        var_dump($this->_conn->query($sql));
+         var_dump($this->_result);
+       // return $this->_result;
     }
 
     public function delete($id)
@@ -43,8 +49,7 @@ class BaseModel
                 $values[] = '"' . $item . '"';
             }
         }
-
-        $sql .= implode(',', $columns) . ')' . "VALUES(" . implode(',', $values) . ')';
+        $sql .= implode(',', $columns) . ')' . " VALUES(" . implode(',', $values) . ')';
         return $this->execute($sql);
 
     }

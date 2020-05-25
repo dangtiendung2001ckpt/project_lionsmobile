@@ -4,7 +4,9 @@ function router($classname)
 {
     include_once $classname .".php";
 }
-
+ini_set('display_errors','off');
+ini_set('log_errors','on');
+ini_set('error_log','Error/error.log');
 spl_autoload_register('router');
 session_start();
 include_once 'Common/config.php';

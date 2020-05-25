@@ -169,4 +169,14 @@ class Product extends BaseController
         ]));
     }
 
+    public function updateProduct(){
+        $this->_category->delete(4444444444);
+
+        var_dump($this->_category->error);
+        if (empty($this->_category->error)){
+            echo "có";
+        }
+        $this->_category->commit();
+    }
+
 }
