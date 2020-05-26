@@ -133,7 +133,7 @@ class Product extends BaseController
     public function addNew()
     {
         $valid = $this->validateProduct();
-        if ($valid == false){
+        if ($valid == false) {
             return redirect(url([
                 'control' => 'product',
                 'action' => 'viewAddNew'
@@ -156,7 +156,7 @@ class Product extends BaseController
             $product_id = $product[0]['product_id'];
 
             foreach ($_POST["attribute"] as $value) {
-                $this->_detail->insert(['product_id'=>$product_id,'attribute_id'=>$value]);
+                $this->_detail->insert(['product_id' => $product_id, 'attribute_id' => $value]);
             }
 
             return redirect(url([
@@ -169,14 +169,18 @@ class Product extends BaseController
         ]));
     }
 
-    public function updateProduct(){
-        $this->_category->delete(4444444444);
+    public function updateProduct()
+    {
 
-        var_dump($this->_category->error);
-        if (empty($this->_category->error)){
-            echo "có";
+        try {
+            $this->_category->startTRANSACTION();
+            $this->_category->delete(78);
+            $this->_category->insert(['category_id' => 'xxx']);
+            $this->_category->commit();
+        } catch (\Exception $exception) {
+            $this->_category->rollBack();
+            echo $exception->getMessage();
         }
-        $this->_category->commit();
     }
 
 }

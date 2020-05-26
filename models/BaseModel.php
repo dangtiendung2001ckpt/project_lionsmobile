@@ -23,18 +23,18 @@ class BaseModel
     {
         $this->dbConnect();
         $this->_result = $this->_conn->query($sql);
-        if ($this->_result == false){
-            $this->errors=['error'=>'dont query'];
+        $error = mysqli_error($this->_conn);
+        if(!empty($error)){
+            throw new \Exception($error);
+
         }
-        var_dump($this->_conn->query($sql));
-         var_dump($this->_result);
-       // return $this->_result;
+        return $this->_result;
     }
 
     public function delete($id)
     {
         $sql = "DELETE FROM $this->_tableName where $this->_primaryKey = '$id'";
-        return $this->execute($sql);
+        $this->execute($sql);
     }
 
     public function insert($data = [])
@@ -50,7 +50,7 @@ class BaseModel
             }
         }
         $sql .= implode(',', $columns) . ')' . " VALUES(" . implode(',', $values) . ')';
-        return $this->execute($sql);
+        $this->execute($sql);
 
     }
 
@@ -69,7 +69,7 @@ class BaseModel
 
         $sql .= substr(implode('', $columns), '0', '-1');
         $sql .= " where $this->_primaryKey = $id";
-        return $this->execute($sql);
+        $this->execute($sql);
     }
 
     protected function _getRow()
@@ -151,7 +151,28 @@ class BaseModel
         return $this->_result->num_rows;
 
     }
-
+    public function startTRANSACTION(){
+        $sql = "START TRANSACTION";
+        $this->execute($sql);
+    }
+    public function commit(){
+        $sql = "COMMIT";
+        $this->execute($sql);
+    }
+    public function rollBack(){
+        $sql = "ROLLBACK";
+        $this->execute($sql);
+    }
+    /*
+    public function handling($data=[]){
+        foreach ($data as $key => $value ){
+            $val[]= $value;
+        }
+        $sql=implode(';',$val);
+        var_dump($sql);
+        $this->execute($sql);
+    }
+    */
 
 }
 
