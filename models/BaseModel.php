@@ -21,14 +21,15 @@ class BaseModel
 
     protected function execute($sql)
     {
-        $this->dbConnect();
+        //$this->dbConnect();
         $this->_result = $this->_conn->query($sql);
         $error = mysqli_error($this->_conn);
         if(!empty($error)){
             throw new \Exception($error);
-
         }
         return $this->_result;
+
+
     }
 
     public function delete($id)
@@ -118,7 +119,8 @@ class BaseModel
 
             }
         }
-        $this->execute($sql);
+        $this->dbConnect();
+        $this->_result = $this->_conn->query($sql);
         $count = $this->_numRows();
         $rows = [];
         if ((int)$count > 0) {
@@ -147,21 +149,25 @@ class BaseModel
                 $sql .= "AND $columns[$i] = '$values[$i]' ";
             }
         }
-        $this->execute($sql);
+        $this->dbConnect();
+        $this->_result = $this->_conn->query($sql);
         return $this->_result->num_rows;
 
     }
-    public function startTRANSACTION(){
-        $sql = "START TRANSACTION";
-        $this->execute($sql);
+    public function startTransaction(){
+        $this->dbConnect();
+        $this->_conn->begin_transaction();
+
+
     }
     public function commit(){
-        $sql = "COMMIT";
-        $this->execute($sql);
+        $this->_conn->commit();
+        //$this->_conn->close();
+
     }
     public function rollBack(){
-        $sql = "ROLLBACK";
-        $this->execute($sql);
+        //$this->_conn->rollback();
+        $this->_conn->close();
     }
     /*
     public function handling($data=[]){
