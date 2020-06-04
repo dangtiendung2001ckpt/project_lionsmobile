@@ -4,10 +4,14 @@
 namespace Controllers\Backend;
 
 
+use Config\Config;
 use Controllers\BaseController;
 use Models\Attribute;
 use Models\Category;
 use Models\DetailProduct;
+use MongoDB\Driver\Session;
+use mysql_xdevapi\Exception;
+use Validators\FileValidator;
 use Validators\ProductsValidator;
 
 class Product extends BaseController
@@ -18,6 +22,8 @@ class Product extends BaseController
     protected $_attribute;
     protected $_productValidators;
     protected $_detail;
+    protected $_config;
+    protected $_validateFile;
 
     public function __construct()
     {
@@ -26,16 +32,20 @@ class Product extends BaseController
         $this->_attribute = new Attribute();
         $this->_productValidators = new ProductsValidator();
         $this->_detail = new DetailProduct();
+        $this->_config = new Config();
+        $this->_validateFile = new FileValidator();
     }
 
     public function homes()
     {
-        $limit = limit;
+        $_SESSION['name']="ahhahah";
+        $limit = $this->_config->getConfig('limit');
+        $ord = $this->_config->getConfig('ord');
         $pages = $this->pages('pages');
         $offset = $this->offset($pages);
         $total = $this->_productModel->count([]);
         $total = $this->totalPage($total);
-        $products = $this->_productModel->getData(['ord' => 'desc', 'limit' => $limit, 'offset' => $offset]);
+        $products = $this->_productModel->getData(['ord' => $ord, 'limit' => $limit, 'offset' => $offset]);
         return $this->render('productlist', ['products' => $products, 'pages' => $pages, 'totalpage' => $total]);
 
     }
@@ -171,16 +181,29 @@ class Product extends BaseController
 
     public function updateProduct()
     {
-
+        $date = getdate();
+        $date = $date['year'].'-'.$date['mon'].'-'.$date['mday'];
+        mkdir("Log/$date");
+        $myfile = fopen("Log/$date/error.log","a+");
         try {
-            $this->_category->startTRANSACTION();
-            $this->_category->delete(78);
-            $this->_category->insert(['category_id' => 'xxx']);
+            $this->_category->startTransaction();
+            $this->_category->insert(['category_name'=>'a']);
             $this->_category->commit();
-        } catch (\Exception $exception) {
+        }catch (\Exception $exception){
             $this->_category->rollBack();
-            echo $exception->getMessage();
+            $myfile = fopen("Error/error.log","a");
+            fwrite($myfile,$exception->getMessage());
         }
+
+    }
+    function uploadFile(){
+        $this->render('uploadfile',[]);
+    }
+    public function fileProcessing(){
+        var_dump($_FILES);
+        $this->_validateFile->validateFile('file');
+        var_dump($this->_validateFile->getErrors());
+
     }
 
 }
