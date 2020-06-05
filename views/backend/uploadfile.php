@@ -2,4 +2,8 @@
     <input type="file" name="file">
     <input type="submit" name="submit" value="submit">
 </form>
+<?php
+foreach (getFlashError() as $key){
+    echo $key;
+}
 

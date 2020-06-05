@@ -38,7 +38,6 @@ class Product extends BaseController
 
     public function homes()
     {
-        $_SESSION['name']="ahhahah";
         $limit = $this->_config->getConfig('limit');
         $ord = $this->_config->getConfig('ord');
         $pages = $this->pages('pages');
@@ -187,11 +186,10 @@ class Product extends BaseController
         $myfile = fopen("Log/$date/error.log","a+");
         try {
             $this->_category->startTransaction();
-            $this->_category->insert(['category_name'=>'a']);
+            $this->_category->insert(['category_id'=>'a']);
             $this->_category->commit();
         }catch (\Exception $exception){
             $this->_category->rollBack();
-            $myfile = fopen("Error/error.log","a");
             fwrite($myfile,$exception->getMessage());
         }
 
@@ -200,9 +198,12 @@ class Product extends BaseController
         $this->render('uploadfile',[]);
     }
     public function fileProcessing(){
-        var_dump($_FILES);
-        $this->_validateFile->validateFile('file');
-        var_dump($this->_validateFile->getErrors());
+        if (!$this->_validateFile->validateFile('file')){
+            setFlashError($this->_validateFile->getErrors());
+            return redirect(url(['action'=>'uploadFile']));
+        }
+
+
 
     }
 
