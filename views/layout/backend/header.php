@@ -59,7 +59,7 @@
                     </div>';
                     }else{
                         echo '
-                            <li><a href="index.php?module=backend&control=login">Đăng nhập</a></li>';
+                            <li><a href="index.php?module=backend&control=login">Đăng Nhập</a></li>';
                     }
                     ?>
                 </div>

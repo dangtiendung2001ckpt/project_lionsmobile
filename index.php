@@ -1,35 +1,44 @@
 <?php
+
+function router($classname)
+{
+    include_once $classname .".php";
+}
+ini_set('display_errors','off');
+ini_set('log_errors','on');
+ini_set('error_log','Error/error.log');
+spl_autoload_register('router');
 session_start();
-include_once 'commom/config.php';
-include_once 'commom/function.php';
-include_once 'commom/numberpages.php';
+include_once 'Common/config.php';
+include_once 'Common/function.php';
+include_once 'Common/numberpages.php';
 
 $module = isset($_GET["module"]) ? $_GET["module"] : "frontend";
 $control = isset($_GET["control"]) ? $_GET["control"] : "home";
 $action = isset($_GET["action"]) ? $_GET["action"] : "homes";
 
-$filename = "controllers/" . $module . "/" . $control . "_controller.php";
+$filename = "controllers/" . $module . "/" . $control . ".php";
 if (file_exists($filename)) {
-    $GLOBALS['module']=$module;
-    $GLOBALS['control']=$control;
-    require_once($filename);
-} else {
-    require_once("controllers/frontend/home_controller.php");
-    $controller = new HomeController();
-    if (!method_exists($controller, $action)) {
+    $GLOBALS['module'] = $module;
+    $GLOBALS['control'] = $control;
+    $classname = "Controllers\\" . ucfirst($module) . "\\" . ucfirst($control);
+    $object = new $classname();
+    if (!method_exists($object, $action)) {
         $action = "homes";
+        $object->$action();
+    } else {
+        $object->$action();
     }
-    //$data = $controller->$action();
-     call_user_func_array([$controller, $action], []);
-
+}else{
+    $classname = "Controllers\\Frontend\\Home";
+    $object = new $classname();
+    if (!method_exists($object, $action)) {
+        $action = "homes";
+        $object->$action();
+    } else {
+        $object->$action();
+    }
 }
-$control = ucfirst($control) . 'Controller';
-$controller = new $control();
-if (!method_exists($controller, $action)) {
-    $action = "homes";
-}
-    //$data = $controller->$action();
-      call_user_func_array([$controller, $action], []);
 
 
 ?>

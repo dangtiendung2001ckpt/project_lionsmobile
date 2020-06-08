@@ -1,9 +1,14 @@
 <?php
- include_once 'showdata.php';
-class DeleteValue extends ShowData {
-    public function delete($table,$id,$value){
+
+
+namespace Models;
+
+
+class Delete extends Count
+{
+    public function deleteValue($table, $id, $value)
+    {
         $sql = "DELETE FROM $table where $id = '$value'";
-       return $this->execute($sql);
+        return $this->execute($sql);
     }
 }
-?>

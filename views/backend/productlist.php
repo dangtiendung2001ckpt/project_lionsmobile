@@ -1,4 +1,6 @@
-﻿
+﻿<?php
+echo $_SESSION['name'];
+?>
 <div class="grid_10">
     <div class="box round first grid">
         <h2>Danh Sách sản phẩm</h2>
@@ -28,7 +30,7 @@
 			</thead>
 			<tbody style="text-align: center;">
             <?php
-            $offset= $offset+1;
+            $offset=isset($offset) ? $offset+1 : 1;
             foreach ($products as $value) {
                 ?>
                 <tr class="odd gradeX">
@@ -42,8 +44,8 @@
                     <td><?php echo $value['so_luong'];?></td>
                     <td><?php echo format_currency($value['price']);?>vnđ</td>
                     <td>
-                        <a style="color: green;" href="<?php echo actions('products','viewAddnewProduct',$value['product_id'])?>">Edit</a> ||
-                        <a style="color: green;" href="<?php echo actions('products','quickAdd',$value['product_id'])?>">Addnew</a> ||
+                        <a style="color: green;" href="<?php echo actions('product','updateProduct',$value['product_id'])?>">Edit</a> ||
+                        <a style="color: green;" href="<?php echo actions('product','uploadFile',$value['product_id'])?>">Addnew</a> ||
                         <a onclick="return confirm('Bạn chắc chắn muốn xóa sản phẩm này?')" style="color: red;" href="<?php echo actions('products','delproduct',$value['product_id']);?>"> Delete</a></td>
                     </td>
                 </tr>
@@ -58,7 +60,7 @@
                     <td class="center"> </td>
                     <td></td>
                     <td></td>
-                    <td><?php  numberpages($totalpage,$pages,'products'); ?></td>
+                    <td><?php  numberPages($totalpage,$pages,'product'); ?></td>
                     <td></td>
                     <td></td>
                     <td></td>

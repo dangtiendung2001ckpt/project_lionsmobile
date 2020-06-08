@@ -1,5 +1,5 @@
 <?php
-include_once 'count.php';
+
 class Addnew extends Count {
     public  function insertUser($name,$pass,$phone,$provincial,$district,$ward,$address){
         $sql = "INSERT INTO user(user_id,user_name, password, phone, provincial, district, ward, address) VALUES(null,'$name','$pass','$phone','$provincial','$district','$ward','$address')";

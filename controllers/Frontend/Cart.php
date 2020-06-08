@@ -1,5 +1,5 @@
 <?php
-include_once 'models/showdata.php';
+include_once 'Models/showdata.php';
 class CartController extends ShowData {
     protected $_module = 'frontend';
     function homes()
@@ -56,7 +56,7 @@ class CartController extends ShowData {
                     header("location:index.php?control=products&action=details&id=$id");
                 }
             }else{
-                header("location:index.php?control=login&int=null&proid=$id");
+                header("location:index.php?control=user&int=null&proid=$id");
             }
         }else{
             header("location:index.php?control=cart");

@@ -1,5 +1,5 @@
 <?php
-function numberpages($totalpage,$pages,$control){
+function numberPages($totalpage,$pages,$control){
     if ($pages >3){
         $first_page=1;
         echo " <a style='color: green;border: 1px cadetblue ridge;font-size: 19px;' href='index.php?module=backend&control=" . $control . "&pages=" . $first_page . "'> Đầu</a>";

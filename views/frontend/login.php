@@ -4,7 +4,7 @@
     <div class="content">
     	 <div class="login_panel">
         	<h3>Chào mừng bạn đã đến với Lions mobile</h3>
-        	<form action="<?php $proid = isset($_GET['proid']) ? $_GET['proid'] : '';  echo "index.php?control=login&action=login&proid=$proid";?>" method="post" id="member">
+        	<form action="<?php $proid = isset($_GET['proid']) ? $_GET['proid'] : '';  echo "index.php?control=user&action=login&proid=$proid";?>" method="post" id="member">
                 	<input name="username" type="text" placeholder="Tên đăng nhập">
                     <input name="password" type="password" placeholder="Mật khẩu">
                     <p class="note"></p>
@@ -22,7 +22,7 @@
     		    echo "index.php?control=cart&action=ordercart";
             }else{
     		    $proid = isset($_GET['proid']) ? $_GET['proid'] : '';
-    		    echo "index.php?control=login&action=checkdata&proid=$proid";
+    		    echo "index.php?control=user&action=checkdata&proid=$proid";
             }
             ?>" method="post" >
 		   			 <table>
